@@ -1,0 +1,5 @@
+Flask
+flask_restful
+gunicorn
+psycopg2
+flask-cors

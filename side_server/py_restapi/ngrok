@@ -1,0 +1,4 @@
+brew install ngrok/ngrok/ngrok
+
+ngrok config add-authtoken 2kHXKlsHbWHmJcEW0w5G99b12SG_3KNmxYKpRZma4xhw1ciAU
+

@@ -1,0 +1,82 @@
+https://cc5b-220-130-135-17.ngrok-free.app
+
+# main.py
+# api.add_resource(InsertSignal, '/insert_signal')
+# api.add_resource(InsertMaincode, '/insert_maincode')
+# api.add_resource(InsertRealTimeTop3, '/insert_realtime_top3')
+# api.add_resource(InsertStockPrice, '/insert_stock_price')
+# api.add_resource(InsertPrice, '/insert_price')
+# api.add_resource(HelloWorld, "/hello")
+
+=============================== stock_price
+curl -X POST https://cc5b-220-130-135-17.ngrok-free.app/insert_stock_price \
+     -H "Content-Type: application/json" \
+     -d '{
+           "da": "2024-08-06T12:34:56",
+           "code": "AAPL",
+           "cl": 175.00,
+           "hi": 176.50,
+           "lo": 174.00,
+           "op": 175.20,
+           "vol": 1000000,
+           "adj": 175.10
+         }'
+=============================== maincode
+
+curl -X POST https://cc5b-220-130-135-17.ngrok-free.app/maincode \
+     -H "Content-Type: application/json" \
+     -d '{
+           "code": "AAPL",
+           "cname": "蘋果公司",
+           "ename": "Apple Inc.",
+           "round_lot": 100,
+           "outstanding_shares": 5000000000,
+           "equity_float": 45.67,
+           "is_download_data": true,
+           "is_rt": false
+         }'
+
+curl -X GET https://cc5b-220-130-135-17.ngrok-free.app/hello
+============================ 訊號
+curl -X POST https://cc5b-220-130-135-17.ngrok-free.app/insert_signal \
+     -H "Content-Type: application/json" \
+     -d '{
+           "code": "2330",
+           "da": "2024-08-06T12:34:56",
+           "cl": 123.45
+         }'
+======= price
+
+
+
+======== realtime_top3
+curl -X POST https://cc5b-220-130-135-17.ngrok-free.app/insert_realtime_top3 \
+     -H "Content-Type: application/json" \
+     -d '{
+           "da": "2024-08-06T12:34:56",
+           "code": "AAPL",
+           "cl": 175.00,
+           "hi": 176.50,
+           "lo": 174.00,
+           "op": 175.20,
+           "vol": 1000000,
+           "adj": 175.10
+         }'
+
+=-========== price
+
+curl -X POST https://cc5b-220-130-135-17.ngrok-free.app/insert_price \
+     -H "Content-Type: application/json" \
+     -d '{
+           "da": "2024-08-06T12:34:56",
+           "code": "AAPL",
+           "cl": 175.00,
+           "hi": 176.50,
+           "lo": 174.00,
+           "op": 175.20,
+           "vol": 1000000,
+           "adj": 175.10,
+           "wma_20": 175.10,
+           "wma_50": 175.10,
+           "wma_100": 175.10
+         }'
