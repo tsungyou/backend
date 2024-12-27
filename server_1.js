@@ -1,6 +1,8 @@
 const express = require("express");
 const { Server: WebSocketServer } = require("ws");
 const { Client } = require("pg");
+const strategyRoute = require("./routes/priceRoute");
+const config = require("./config/config");
 const PORT = 3001;
 
 const app = express();
@@ -11,13 +13,7 @@ const server = app.listen(PORT, () => {
 
 const wss = new WebSocketServer({ server });
 
-const pgClient = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'tw',
-    password: 'buddyrich134',
-    port: 5432,
-});
+const pgClient = new Client(config.db);
 
 pgClient.connect()
     .then(() => {
@@ -57,9 +53,11 @@ wss.on("connection", (ws) => {
         console.log("Connection closed");
     });
 });
-let counter = 1;  // Initialize the counter to 1
 
-// Function to insert new data (for testing)
+app.use(strategyRoute);
+
+let counter = 1; 
+
 function insertNewData() {
     // Create the message using the counter value
     const message = `${counter}`;
