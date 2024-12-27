@@ -16,3 +16,19 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER new_message_trigger
 AFTER INSERT ON messages
 FOR EACH ROW EXECUTE FUNCTION notify_new_message();
+
+
+
+psql -U postgres
+-pwd buddyrich134
+
+\l fort all databases
+
+
+postgres=# \du postgres
+                             List of roles
+ Role name |                         Attributes                         
+-----------+------------------------------------------------------------
+ postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS
+
+postgres=# 
